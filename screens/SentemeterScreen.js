@@ -39,7 +39,7 @@ const SentemeterScreen = () => {
       <Emoji name="rage" style={{ fontSize: 30 }} />
       <Emoji name="pensive" style={{ fontSize: 30 }} />
       <Emoji name="lying_face" style={{ fontSize: 30 }} />
-      <Emoji name="face_with_monocle" style={{ fontSize: 3 }} />
+      <Emoji name="face_with_monocle" style={{ fontSize: 30 }} />
     </View>
   );
 };
