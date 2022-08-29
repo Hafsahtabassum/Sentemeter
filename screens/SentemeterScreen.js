@@ -12,10 +12,12 @@ import { useNavigation } from "@react-navigation/native";
 import Emoji from "react-native-emoji";
 import colors from "../Style/colors";
 import { Ionicons } from "@expo/vector-icons";
+import * as Animatable from "react-native-animatable";
+
+import AnimatedEmoji from "../components/AnimatedEmoji";
+
 const SentemeterScreen = () => {
   const navigation = useNavigation();
-
-  const [modalVisible, setModalVisible] = useState(false);
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -56,47 +58,42 @@ const SentemeterScreen = () => {
   return (
     <SafeAreaView className="flex-1 bg-white">
       <View className="h-10 items-center mt-1  ">
-        <Text className="text-lg font-bold text-blue-500">
+        <Animatable.Text
+          iterationCount={1}
+          animation="slideInLeft"
+          className="text-lg font-bold text-blue-500"
+        >
           How do you feel about me today?
-        </Text>
+        </Animatable.Text>
       </View>
       <View className="items-center w-full">
         <View className="w-full h-28">
           <View className="absolute left-16 bottom-6">
-            <TouchableOpacity>
-              <Emoji
-                name="grinning_face_with_star_eyes"
-                style={{ fontSize: 33 }}
-              />
-            </TouchableOpacity>
-          </View>
-          <View className="items-center justify-center mt-1">
-            <TouchableOpacity>
-              <Emoji name="smile" style={{ fontSize: 33 }} />
-            </TouchableOpacity>
+            <AnimatedEmoji name="grinning_face_with_star_eyes" />
           </View>
 
+          <View className="items-center justify-center mt-1">
+            <AnimatedEmoji name="smile" />
+          </View>
           <View className="absolute right-14 bottom-6">
-            <TouchableOpacity>
-              <Emoji name="face_with_monocle" style={{ fontSize: 33 }} />
-            </TouchableOpacity>
+            <AnimatedEmoji name="face_with_monocle" />
           </View>
         </View>
 
         <View className="flex-row w-full items-center justify-center relative">
-          <View className="absolute h-full left-1">
-            <View className=" left-0 absolut mb-5">
-              <TouchableOpacity>
-                <Emoji name="hugging_face" style={{ fontSize: 33 }} />
-              </TouchableOpacity>
-            </View>
-
-            <View className=" absolute left-0 bottom-0 mt-5">
-              <TouchableOpacity>
-                <Emoji name="innocent" style={{ fontSize: 33 }} />
-              </TouchableOpacity>
-            </View>
+          {/* <View className="absolute h-full left-1"> */}
+          <View className=" left-0 absolute top-1 mb-5 ">
+            <TouchableOpacity>
+              <AnimatedEmoji name="hugging_face" />
+            </TouchableOpacity>
           </View>
+
+          <View className=" absolute left-0 bottom-0 mt-5 ">
+            <TouchableOpacity>
+              <AnimatedEmoji name="innocent" />
+            </TouchableOpacity>
+          </View>
+          {/* </View> */}
 
           <View className="items-center px-5 justify-center my-2 ">
             <Image
@@ -109,18 +106,19 @@ const SentemeterScreen = () => {
                 width: 130,
                 borderWidth: 5,
                 borderColor: colors.blue,
+                zIndex: -20,
               }}
             />
           </View>
           <View className="absolute h-full right-1">
             <View className=" right-0 absolute mb-5">
               <TouchableOpacity>
-                <Emoji name="zipper_mouth_face" style={{ fontSize: 33 }} />
+                <AnimatedEmoji name="zipper_mouth_face" />
               </TouchableOpacity>
             </View>
             <View className=" absolute right-0 bottom-0 mt-5">
               <TouchableOpacity>
-                <Emoji name="cry" style={{ fontSize: 33 }} />
+                <AnimatedEmoji name="cry" />
               </TouchableOpacity>
             </View>
           </View>
@@ -129,23 +127,23 @@ const SentemeterScreen = () => {
           <View className=" w-full items-center h-28 justify-end mb-1">
             <View className="absolute left-14 top-6">
               <TouchableOpacity>
-                <Emoji name="rage" style={{ fontSize: 33 }} />
+                <AnimatedEmoji name="rage" />
               </TouchableOpacity>
             </View>
             <View>
               <TouchableOpacity>
-                <Emoji name="pensive" style={{ fontSize: 33 }} />
+                <AnimatedEmoji name="pensive" />
               </TouchableOpacity>
             </View>
             <View className="absolute right-14 top-6">
               <TouchableOpacity>
-                <Emoji name="lying_face" style={{ fontSize: 33 }} />
+                <AnimatedEmoji name="lying_face" />
               </TouchableOpacity>
             </View>
           </View>
         </View>
       </View>
-      <View className="items-center w-full  mt-1">
+      <View className="items-center w-full  mt-1 -z-20">
         <Text className="text-2xl font-bold" numberOfLines={1}>
           Ross the Boss
         </Text>
@@ -155,30 +153,13 @@ const SentemeterScreen = () => {
         <Text className="text-ms text-gray-400 italic">Not Provided</Text>
       </View>
 
-      <View className="mt-4 items-center justify-center w-full p-4">
-        <TouchableOpacity
-          onPress={() => setModalVisible(!modalVisible)}
-          className="justify-center items-center w-4/5 bg-white rounded-3xl p-1 shadow-2xl border"
-        >
+      <View className="mt-4 items-center justify-center w-full p-4 -z-20">
+        <TouchableOpacity className="justify-center items-center w-4/5 bg-white rounded-3xl p-1 shadow-2xl border">
           <Text className="font-bold text-slate-500 text-base ">
             VIEW FEEDBACK
           </Text>
         </TouchableOpacity>
       </View>
-      {/* <Modal
-        className="h-2/3 w-full"
-        animationType={"slide"}
-        transparent={false}
-        // visible={this.state.isVisible}
-        // onRequestClose={() => {
-        //   Alert.alert('Modal has now been closed.');
-        // }}
-      >
-        <Text>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eget
-          tempus augue, a convallis velit.
-        </Text>
-      </Modal> */}
     </SafeAreaView>
   );
 };

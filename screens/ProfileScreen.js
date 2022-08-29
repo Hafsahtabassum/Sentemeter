@@ -1,11 +1,19 @@
-import { View, Text, TouchableOpacity, ScrollView, Image } from "react-native";
-import React, { useLayoutEffect } from "react";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  ScrollView,
+  Image,
+  TextInput,
+} from "react-native";
+import React, { useLayoutEffect, useState } from "react";
 import { AntDesign } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import colors from "../Style/colors";
 
 const ProfileScreen = () => {
   const navigation = useNavigation();
+
   useLayoutEffect(() => {
     navigation.setOptions({
       headerStyle: { backgroundColor: colors.blue },
