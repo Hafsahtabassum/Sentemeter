@@ -7,6 +7,7 @@ import Navigation from "./Navigation/Navigation";
 export default function App() {
   return (
     <TailwindProvider>
+      <StatusBar style="light" />
       <Navigation />
     </TailwindProvider>
   );

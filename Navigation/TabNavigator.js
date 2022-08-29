@@ -38,7 +38,7 @@ const TabNavigator = () => {
             />
           );
         },
-        headerShown: false,
+        headerShown: true,
         activeTintColor: colors.orange,
         inactiveTintColor: colors.blue,
         keyboardHidesTabBar: true,
@@ -51,6 +51,7 @@ const TabNavigator = () => {
           tabBarLabelStyle: {
             fontSize: 8,
           },
+          headerShown: false,
         }}
       />
       <Tab.Screen
@@ -60,6 +61,8 @@ const TabNavigator = () => {
           tabBarLabelStyle: {
             fontSize: 8,
           },
+          headerTitle: "Sentegram",
+          tabBarLabel: "SENTEGRAM",
         }}
       />
       <Tab.Screen
@@ -69,6 +72,8 @@ const TabNavigator = () => {
           tabBarLabelStyle: {
             fontSize: 8,
           },
+          headerTitle: "Sentesurvey",
+          tabBarLabel: "SENTESURVEY",
         }}
       />
       <Tab.Screen
@@ -78,6 +83,8 @@ const TabNavigator = () => {
           tabBarLabelStyle: {
             fontSize: 8,
           },
+          headerTitle: "Sentepede",
+          tabBarLabel: "SENTEPEDE",
         }}
       />
       <Tab.Screen
@@ -87,6 +94,8 @@ const TabNavigator = () => {
           tabBarLabelStyle: {
             fontSize: 8,
           },
+          headerTitle: "Sentemeter",
+          tabBarLabel: "HELP",
         }}
       />
     </Tab.Navigator>

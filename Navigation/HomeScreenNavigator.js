@@ -11,7 +11,16 @@ const HomeScreenNavigator = () => {
   return (
     <Stack.Navigator screenOptions={{ title: "" }}>
       <Stack.Screen name="Sentemeter" component={SentemeterScreen} />
-      <Stack.Screen name="Profile" component={ProfileScreen} />
+      <Stack.Screen
+        name="Profile"
+        component={ProfileScreen}
+        options={{
+          tabBarLabelStyle: {
+            fontSize: 8,
+          },
+          headerTitle: "Sentemeter",
+        }}
+      />
       <Stack.Screen name="CoreValue" component={CoreValueScoreScreen} />
       <Stack.Screen name="Sentegram" component={SentegramRecievedScreen} />
     </Stack.Navigator>
