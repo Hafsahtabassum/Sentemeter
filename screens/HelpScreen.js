@@ -6,6 +6,7 @@ import {
   ScrollView,
   KeyboardAvoidingView,
   SafeAreaView,
+  Linking,
 } from "react-native";
 import React, { useLayoutEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
@@ -58,7 +59,12 @@ const HelpScreen = () => {
           <Octicons name="plus" size={20} color={colors.blue} />
         </View>
       </View>
-      <View className="flex-row border-b w-11/12 justify-items-stretch py-6 ">
+      <TouchableOpacity
+        onPress={() => {
+          Linking.openURL("mailto:muhammadsaadumar62@gmail.com");
+        }}
+        className="flex-row border-b w-11/12 justify-items-stretch py-6"
+      >
         <View className="flex-row  items-center ">
           <MaterialIcons name="contact-support" size={36} color={colors.blue} />
           <Text className="text-lg font-normal pl-3">Support</Text>
@@ -66,7 +72,7 @@ const HelpScreen = () => {
         <View className="absolute right-0 bottom-1/2">
           <Octicons name="plus" size={20} color={colors.blue} />
         </View>
-      </View>
+      </TouchableOpacity>
       <View className="flex-row border-b w-11/12 justify-items-stretch py-6 ">
         <View className="flex-row  items-center ">
           <AntDesign name="logout" size={34} color={colors.blue} />

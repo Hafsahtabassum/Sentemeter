@@ -3,12 +3,15 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import { TailwindProvider } from "tailwindcss-react-native";
 import Navigation from "./Navigation/Navigation";
+import { UserProvider } from "./screens/context/Usercontext";
 
 export default function App() {
   return (
     <TailwindProvider>
-      <StatusBar style="light" />
-      <Navigation />
+      <UserProvider>
+        <StatusBar style="light" />
+        <Navigation />
+      </UserProvider>
     </TailwindProvider>
   );
 }

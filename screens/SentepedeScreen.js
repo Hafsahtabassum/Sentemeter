@@ -15,15 +15,8 @@ import Emoji from "react-native-emoji";
 
 const SentepedeScreen = () => {
   const navigation = useNavigation();
-  const [emojiIndex, SetEmojiIndex] = React.useState("1");
-  const [productCategory, setProductCategory] = useState();
-  const emojiesComment = [
-    "For Motivating",
-    "Form Teambuilding",
-    "For Positivity",
-    "For Recognizing",
-    "For Trusting",
-  ];
+  const [emojiIndex, setEmojiIndex] = React.useState("1");
+
   useLayoutEffect(() => {
     navigation.setOptions({
       title: "Sentepede",
@@ -150,24 +143,53 @@ const SentepedeScreen = () => {
       <View className="h-20 w-full"></View>
       <KeyboardAvoidingView>
         <ActiveEMoji />
-        <View className="justify-evenly items-center w-11/12 flex-row h-12 mt-2">
+        <View className="justify-evenly items-center w-11/12 flex-row h-15 mt-3">
           <TouchableOpacity>
             <Emoji
+              onPress={() => {
+                setEmojiIndex("1");
+              }}
               name="grinning_face_with_star_eyes"
-              style={{ fontSize: 30 }}
+              style={{ fontSize: emojiIndex === "1" ? 36 : 30 }}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              setEmojiIndex("2");
+            }}
+          >
+            <Emoji
+              name="hugging_face"
+              style={{ fontSize: emojiIndex === "2" ? 40 : 30 }}
             />
           </TouchableOpacity>
           <TouchableOpacity>
-            <Emoji name="hugging_face" style={{ fontSize: 30 }} />
+            <Emoji
+              name="smiley"
+              style={{ fontSize: emojiIndex === "3" ? 36 : 30 }}
+              onPress={() => {
+                setEmojiIndex("3");
+              }}
+            />
           </TouchableOpacity>
           <TouchableOpacity>
-            <Emoji name="smiley" style={{ fontSize: 30 }} />
+            <Emoji
+              name="face_with_monocle"
+              style={{ fontSize: emojiIndex === "4" ? 36 : 30 }}
+              onPress={() => {
+                setEmojiIndex("4");
+              }}
+            />
           </TouchableOpacity>
-          <TouchableOpacity>
-            <Emoji name="face_with_monocle" style={{ fontSize: 30 }} />
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <Emoji name="innocent" style={{ fontSize: 30 }} />
+          <TouchableOpacity
+            onPress={() => {
+              setEmojiIndex("5");
+            }}
+          >
+            <Emoji
+              name="innocent"
+              style={{ fontSize: emojiIndex === "5" ? 36 : 30 }}
+            />
           </TouchableOpacity>
         </View>
         <Text className="text-xl font-semibold ml-5 mt-2">Because...</Text>

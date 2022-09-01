@@ -47,7 +47,7 @@ const AnimatedEmoji = (props) => {
   return (
     <PanGestureHandler onGestureEvent={panGestureEvent}>
       <Animated.View style={rStyle}>
-        <Emoji name={props.name} style={{ fontSize: 35 }} />
+        <Emoji name={props.name} style={{ fontSize: 32 }} />
       </Animated.View>
     </PanGestureHandler>
   );

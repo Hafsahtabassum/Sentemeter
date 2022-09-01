@@ -6,11 +6,11 @@ import {
   SafeAreaView,
 } from "react-native";
 import React, { useEffect, useLayoutEffect } from "react";
-import { FontAwesome } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import Emoji from "react-native-emoji";
 import colors from "../Style/colors";
 import { AntDesign } from "@expo/vector-icons";
+import AnimatedEmoji from "../components/AnimatedEmoji";
 
 const SentesurveyScreen = () => {
   const navigation = useNavigation();
@@ -52,40 +52,37 @@ const SentesurveyScreen = () => {
           Sentemeter
         </Text>
       </View>
-      <View className="items-center w-full">
+      <View className="items-center w-full relative flex-1">
         <View className="w-full h-24">
           <View className="absolute left-16 bottom-5">
             <TouchableOpacity>
-              <Emoji
-                name="grinning_face_with_star_eyes"
-                style={{ fontSize: 33 }}
-              />
+              <AnimatedEmoji name="grinning_face_with_star_eyes" />
             </TouchableOpacity>
           </View>
           <View className="items-center justify-center">
             <TouchableOpacity>
-              <Emoji name="smile" style={{ fontSize: 33 }} />
+              <AnimatedEmoji name="smile" />
             </TouchableOpacity>
           </View>
 
           <View className="absolute right-16 bottom-5">
             <TouchableOpacity>
-              <Emoji name="face_with_monocle" style={{ fontSize: 33 }} />
+              <AnimatedEmoji name="face_with_monocle" />
             </TouchableOpacity>
           </View>
         </View>
 
         <View className="flex-row w-full items-center justify-center relative">
           <View className="absolute h-full left-1">
-            <View className=" left-4 absolute mb-5">
+            <View className=" left-4 absolute top-0">
               <TouchableOpacity>
-                <Emoji name="hugging_face" style={{ fontSize: 33 }} />
+                <AnimatedEmoji name="hugging_face" />
               </TouchableOpacity>
             </View>
 
             <View className=" absolute left-4 bottom-0 mt-5">
               <TouchableOpacity>
-                <Emoji name="innocent" style={{ fontSize: 33 }} />
+                <AnimatedEmoji name="innocent" />
               </TouchableOpacity>
             </View>
           </View>
@@ -107,12 +104,12 @@ const SentesurveyScreen = () => {
           <View className="absolute h-full right-1">
             <View className=" right-4 absolute mb-5">
               <TouchableOpacity>
-                <Emoji name="zipper_mouth_face" style={{ fontSize: 33 }} />
+                <AnimatedEmoji name="zipper_mouth_face" />
               </TouchableOpacity>
             </View>
             <View className=" absolute right-4 bottom-0 mt-5">
               <TouchableOpacity>
-                <Emoji name="cry" style={{ fontSize: 33 }} />
+                <AnimatedEmoji name="cry" />
               </TouchableOpacity>
             </View>
           </View>
@@ -121,23 +118,23 @@ const SentesurveyScreen = () => {
           <View className=" w-full items-center h-24 justify-end">
             <View className="absolute left-16 top-5">
               <TouchableOpacity>
-                <Emoji name="rage" style={{ fontSize: 33 }} />
+                <AnimatedEmoji name="rage" />
               </TouchableOpacity>
             </View>
             <View>
               <TouchableOpacity>
-                <Emoji name="pensive" style={{ fontSize: 33 }} />
+                <AnimatedEmoji name="pensive" className="mb-3" />
               </TouchableOpacity>
             </View>
             <View className="absolute right-16 top-5">
               <TouchableOpacity>
-                <Emoji name="lying_face" style={{ fontSize: 33 }} />
+                <AnimatedEmoji name="lying_face" />
               </TouchableOpacity>
             </View>
           </View>
         </View>
       </View>
-      <View className="items-center w-full  mt-5">
+      <View className="items-center w-full mb-3">
         <Text className="text-xl text-white">
           I feel that my job is important and am motivated by what my company
           does/represents

@@ -7,6 +7,7 @@ import SentesurveyScreen from "../screens/SentesurveyScreen";
 import SentepedeScreen from "../screens/SentepedeScreen";
 import SentegramScreen from "../screens/SentegramScreen";
 import HomeScreenNavigator from "./HomeScreenNavigator";
+import SentegramScreenNavigator from "./SentegramScreenNavigator";
 import color from "../Style/colors";
 import { FontAwesome } from "@expo/vector-icons";
 import colors from "../Style/colors";
@@ -41,7 +42,7 @@ const TabNavigator = () => {
         headerShown: true,
         activeTintColor: colors.orange,
         inactiveTintColor: colors.blue,
-        keyboardHidesTabBar: true,
+        tabBarHideOnKeyboard: true,
       })}
     >
       <Tab.Screen
@@ -56,12 +57,12 @@ const TabNavigator = () => {
       />
       <Tab.Screen
         name="SENTEGRAM"
-        component={SentegramScreen}
+        component={SentegramScreenNavigator}
         options={{
           tabBarLabelStyle: {
             fontSize: 8,
           },
-          headerTitle: "Sentegram",
+          headerShown: false,
           tabBarLabel: "SENTEGRAM",
         }}
       />
