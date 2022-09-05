@@ -6,14 +6,22 @@ import {
   ScrollView,
   KeyboardAvoidingView,
   Modal,
+  Image,
 } from "react-native";
 import React, { useLayoutEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import colors from "../Style/colors";
 import { AntDesign } from "@expo/vector-icons";
 import Emoji from "react-native-emoji";
+import { UserState } from "./context/Usercontext";
 
 const SentepedeScreen = () => {
+  const { user } = UserState();
+  const name = user.Employee_Name;
+  const imageUrl = user.Employee_Image;
+  const Department = user.Employee_Department;
+  const Designation = user.Employee_Designation;
+
   const navigation = useNavigation();
   const [emojiIndex, setEmojiIndex] = React.useState("1");
 
@@ -125,22 +133,55 @@ const SentepedeScreen = () => {
       <Text className="text-xl font-semibold ml-5 mt-2">
         My vote for sentepede of the month is...
       </Text>
-      <View className="items-center">
-        <View className="items-center flex-row border rounded-full py-1 px-2 w-4/5 my-2">
+      <View className="items-center ">
+        <TouchableOpacity
+          onPress={() => navigation.navigate("Search")}
+          className="elevation bg-white items-center flex-row border rounded-full py-2 px-2 w-4/5 my-2"
+        >
           <AntDesign
             name="search1"
             size={24}
             color={colors.orange}
             className="pr-4"
           />
-          <TextInput
-            className="text-sm text-semibold ml-2"
-            placeholder="Search here for colleague..."
-            underlineColorAndroid="transparent"
+          <Text className="text-sm text-semibold ml-3 from-neutral-800">
+            Search here for colleague...
+          </Text>
+        </TouchableOpacity>
+      </View>
+      <View className="h-24 w-full flex-row">
+        <View className="w-3/12 items-center justify-center">
+          <Image
+            source={{
+              uri:
+                imageUrl ||
+                "https://c8.alamy.com/zooms/9/c1ae20f4f9dd4bb1904efa49479a42ac/tb0yme.jpg",
+            }}
+            style={{
+              borderRadius: 25,
+              height: 50,
+              width: 50,
+            }}
           />
         </View>
+        <View>
+          <View className="my-1">
+            <Text className="text-xl " numberOfLines={1}>
+              {name}
+            </Text>
+          </View>
+
+          <View className="flex-row pb-1">
+            <Text className="text-xs ">Designation: </Text>
+            <Text className="text-xs  text-purple-800">{Designation}</Text>
+          </View>
+
+          <View className="flex-row pb-1">
+            <Text className="text-xs ">Department: </Text>
+            <Text className="text-xs text-red-800">{Department}</Text>
+          </View>
+        </View>
       </View>
-      <View className="h-20 w-full"></View>
       <KeyboardAvoidingView>
         <ActiveEMoji />
         <View className="justify-evenly items-center w-11/12 flex-row h-15 mt-3">

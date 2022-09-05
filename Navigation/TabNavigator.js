@@ -4,7 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HelpScreen from "../screens/HelpScreen";
 import SentesurveyScreen from "../screens/SentesurveyScreen";
-import SentepedeScreen from "../screens/SentepedeScreen";
+import SentepedeScreenNavigator from "./SentepedeScreenNavigator";
 import SentegramScreen from "../screens/SentegramScreen";
 import HomeScreenNavigator from "./HomeScreenNavigator";
 import SentegramScreenNavigator from "./SentegramScreenNavigator";
@@ -79,13 +79,14 @@ const TabNavigator = () => {
       />
       <Tab.Screen
         name="SENTEPEDE"
-        component={SentepedeScreen}
+        component={SentepedeScreenNavigator}
         options={{
           tabBarLabelStyle: {
             fontSize: 8,
           },
           headerTitle: "Sentepede",
           tabBarLabel: "SENTEPEDE",
+          headerShown: false,
         }}
       />
       <Tab.Screen

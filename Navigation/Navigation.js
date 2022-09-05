@@ -5,21 +5,21 @@ import { useEffect, useState } from "react";
 import Tabnavigator from "./TabNavigator";
 import AuthNavigator from "./AuthNavigator";
 import { auth, firestore, storage } from "../api/firebase";
+import { UserState } from "../screens/context/Usercontext";
 
 const Navigation = () => {
-  const [user, setUser] = useState("saad");
+  const { me, setMe } = UserState();
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((userExist) => {
       if (userExist) {
-        setUser(userExist);
-      } else {
-        setUser("saad");
+        setMe(userExist);
       }
     });
+    return unsubscribe;
   }, []);
   return (
     <NavigationContainer>
-      {user ? <Tabnavigator /> : <AuthNavigator />}
+      {me ? <Tabnavigator /> : <AuthNavigator />}
     </NavigationContainer>
   );
 };

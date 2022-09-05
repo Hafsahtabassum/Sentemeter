@@ -7,7 +7,6 @@ import {
 } from "react-native";
 import React, { useEffect, useLayoutEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
-import Emoji from "react-native-emoji";
 import colors from "../Style/colors";
 import { AntDesign } from "@expo/vector-icons";
 import AnimatedEmoji from "../components/AnimatedEmoji";
@@ -52,7 +51,7 @@ const SentesurveyScreen = () => {
           Sentemeter
         </Text>
       </View>
-      <View className="items-center w-full relative flex-1">
+      <View className="items-center w-full flex-1">
         <View className="w-full h-24">
           <View className="absolute left-16 bottom-5">
             <TouchableOpacity>
@@ -98,6 +97,7 @@ const SentesurveyScreen = () => {
                 width: 130,
                 borderWidth: 3,
                 borderColor: colors.blue,
+                zIndex: -20,
               }}
             />
           </View>

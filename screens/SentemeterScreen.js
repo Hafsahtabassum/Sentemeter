@@ -19,8 +19,6 @@ import { collection, query, where, onSnapshot } from "firebase/firestore";
 
 import AnimatedEmoji from "../components/AnimatedEmoji";
 
-const { height, width } = Dimensions.get("window");
-
 const SentemeterScreen = () => {
   const navigation = useNavigation();
   const [users, setUsers] = useState([]);
@@ -197,9 +195,10 @@ const SentemeterScreen = () => {
         renderCard={(card) => renderItem(card)}
         cardIndex={0}
         stackSize={1}
-        infinite={true}
         verticalSwipe={false}
         outputRotationRange={["0deg", "0deg", "0deg"]}
+        goBackToPreviousCardOnSwipeRight={true}
+        goBackToPreviousCardOnSwipeLeft={true}
       />
       <View className="absolute bottom-2 items-center justify-center w-full p-3 -z-20">
         <TouchableOpacity className="justify-center items-center w-4/5 bg-white rounded-3xl p-1 shadow-2xl border">

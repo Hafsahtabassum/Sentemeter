@@ -13,7 +13,7 @@ import { AntDesign } from "@expo/vector-icons";
 import Emoji from "react-native-emoji";
 import { UserState } from "./context/Usercontext";
 
-const SentegramScreen = ({ route }) => {
+const SentegramScreen = () => {
   const { user } = UserState();
   const name = user.Employee_Name;
   const imageUrl = user.Employee_Image;

@@ -104,7 +104,7 @@ const SearchScreen = () => {
             <TouchableOpacity
               onPress={() => {
                 setUser(item);
-                navigation.navigate("Sentegram");
+                navigation.goBack();
               }}
               className="w-full border-b flex-row  py-2"
             >
